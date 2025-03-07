@@ -175,63 +175,40 @@ The admin can edit or delete any activity or goal.
    Backend
    Spring Boot: Framework for building the backend.
 
-Spring Security: For authentication and authorization.
+   Spring Security: For authentication and authorization.
 
-JWT: For secure communication between the frontend and backend.
+   JWT: For secure communication between the frontend and backend.
 
-MySQL: Database for storing user information, activities, and goals.
+   MySQL: Database for storing user information, activities, and goals.
 
-Maven: Dependency management.
+   Maven: Dependency management.
 
-Frontend
-React: JavaScript library for building the user interface.
+   Frontend
+   React: JavaScript library for building the user interface.
 
-Axios: For making HTTP requests to the backend.
+   Axios: For making HTTP requests to the backend.
 
-React Router: For navigation between pages.
+   React Router: For navigation between pages.
 
-CSS: For styling the application.
+   CSS: For styling the application.
 
-6. Future Enhancements
-   User Profile Page:
-
-Allow users to update their profile information (e.g., email, password).
-
-Progress Tracking:
-
-Add charts or graphs to visualize progress toward fitness goals.
-
-Social Features:
-
-Allow users to share their activities and goals with friends.
-
-Notifications:
-
-Send reminders for upcoming goals or activities.
-
-7. How to Run the Project
+6. How to Run the Project
    Backend
    Set up a MySQL database and update the application.properties file with your database credentials.
 
-Run the Spring Boot application using your IDE or the command line:
+   Run the Spring Boot application using your IDE or the command line:
 
-bash
-Copy
-mvn spring-boot:run
-Frontend
-Navigate to the frontend directory:
+   mvn spring-boot:run
 
-bash
-Copy
-cd frontend
-Install dependencies:
+   Frontend
+   Navigate to the frontend directory:
+   cd frontend
 
-bash
-Copy
-npm install
-Start the development server:
+   Install dependencies:
+   npm install
 
-bash
-Copy
-npm start 8. Conclusion
-This Fitness Tracker Application is a comprehensive solution for tracking fitness activities and goals. It demonstrates the use of modern technologies like Spring Boot, React, and JWT for building secure and scalable applications. With its user-friendly interface and robust backend, it provides a seamless experience for users and admins alike. Future enhancements like progress tracking, social features, and notifications will further improve its functionality and user engagement. Let me know if you need further clarification or assistance!
+   Start the development server:
+   npm start
+
+7. Conclusion
+   This Fitness Tracker Application is a comprehensive solution for tracking fitness activities and goals. It demonstrates the use of modern technologies like Spring Boot, React, and JWT for building secure and scalable applications. With its user-friendly interface and robust backend, it provides a seamless experience for users and admins alike. Future enhancements like progress tracking, social features, and notifications will further improve its functionality and user engagement. Let me know if you need further clarification or assistance!
