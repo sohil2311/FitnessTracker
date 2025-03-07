@@ -5,175 +5,175 @@ This project is a Fitness Tracker Application designed to help users track their
 1. Project Overview
    The Fitness Tracker Application allows users to:
 
-Log fitness activities (e.g., running, cycling) with details like type, duration, calories burned, and date.
+   Log fitness activities (e.g., running, cycling) with details like type, duration, calories burned, and date.
 
-Set fitness goals with details like description, target, start date, and end date.
+   Set fitness goals with details like description, target, start date, and end date.
 
-View, edit, and delete their activities and goals.
+   View, edit, and delete their activities and goals.
 
-Admins can view all users' activities and goals and manage them.
+   Admins can view all users' activities and goals and manage them.
 
-The application is secure, scalable, and responsive, ensuring a seamless user experience across devices.
+   The application is secure, scalable, and responsive, ensuring a seamless user experience across devices.
 
 2. Key Features
    a. User Features
    User Registration:
 
-Users can create an account by providing a username, email, and password.
+   Users can create an account by providing a username, email, and password.
 
-Passwords are hashed using BCrypt before being stored in the database.
+   Passwords are hashed using BCrypt before being stored in the database.
 
-User Login:
+   User Login:
 
-Users can log in using their username and password.
+   Users can log in using their username and password.
 
-Upon successful login, a JWT (JSON Web Token) is generated and stored in the browser's localStorage.
+   Upon successful login, a JWT (JSON Web Token) is generated and stored in the browser's localStorage.
 
-Activity Management:
+   Activity Management:
 
-Users can log activities with details like type, duration, calories burned, and date.
+   Users can log activities with details like type, duration, calories burned, and date.
 
-Users can view, edit, or delete their activities.
+   Users can view, edit, or delete their activities.
 
-Goal Management:
+   Goal Management:
 
-Users can set fitness goals with details like description, target, start date, and end date.
+   Users can set fitness goals with details like description, target, start date, and end date.
 
-Users can view, edit, or delete their goals.
+   Users can view, edit, or delete their goals.
 
-User Profile Page:
+   User Profile Page:
 
-Users can update their profile information (e.g., email, password).
+   Users can update their profile information (e.g., email, password).
 
-b. Admin Features
-View All Activities:
+   b. Admin Features
+   View All Activities:
 
-Admins can view all activities logged by all users.
+   Admins can view all activities logged by all users.
 
-View All Goals:
+   View All Goals:
 
-Admins can view all goals set by all users.
+   Admins can view all goals set by all users.
 
-Edit and Delete:
+   Edit and Delete:
 
-Admins can edit or delete any activity or goal.
+   Admins can edit or delete any activity or goal.
 
-c. Additional Features
-Progress Tracking:
+   c. Additional Features
+   Progress Tracking:
 
-Charts or graphs are provided to visualize progress toward fitness goals.
+   Charts or graphs are provided to visualize progress toward fitness goals.
 
-Social Features:
+   Social Features:
 
-Users can share their activities and goals with friends.
+   Users can share their activities and goals with friends.
 
-Notifications:
+   Notifications:
 
-Users receive reminders for upcoming goals or activities.
+   Users receive reminders for upcoming goals or activities.
 
-3. Architecture
-   a. Backend (Spring Boot)
-   The backend is built using Spring Boot and provides RESTful APIs for the frontend. It handles user authentication, activity and goal management, and data storage.
+   3. Architecture
+      a. Backend (Spring Boot)
+      The backend is built using Spring Boot and provides RESTful APIs for the frontend. It handles user authentication, activity and goal management, and data storage.
 
-Key Components
-User Authentication:
+   Key Components
+   User Authentication:
 
-Uses Spring Security for authentication and authorization.
+   Uses Spring Security for authentication and authorization.
 
-JWT tokens are used for secure communication between the frontend and backend.
+   JWT tokens are used for secure communication between the frontend and backend.
 
-Activity and Goal Management:
+   Activity and Goal Management:
 
-RESTful endpoints are provided for creating, reading, updating, and deleting activities and goals.
+   RESTful endpoints are provided for creating, reading, updating, and deleting activities and goals.
 
-Admins have access to endpoints for fetching all activities and goals.
+   Admins have access to endpoints for fetching all activities and goals.
 
-Database:
+   Database:
 
-The application uses a MySQL database to store user information, activities, and goals.
+   The application uses a MySQL database to store user information, activities, and goals.
 
-Tables:
+   Tables:
 
-User: Stores user details (username, email, password, role).
+   User: Stores user details (username, email, password, role).
 
-Activity: Stores activity details (type, duration, calories burned, date, user ID).
+   Activity: Stores activity details (type, duration, calories burned, date, user ID).
 
-Goal: Stores goal details (description, target, start date, end date, user ID).
+   Goal: Stores goal details (description, target, start date, end date, user ID).
 
-Security:
+   Security:
 
-All requests (except login and registration) require a valid JWT token in the Authorization header.
+   All requests (except login and registration) require a valid JWT token in the Authorization header.
 
-Role-based access control ensures that only admins can access certain endpoints.
+   Role-based access control ensures that only admins can access certain endpoints.
 
-b. Frontend (React)
-The frontend is a single-page application (SPA) built with React. It provides a user-friendly interface for interacting with the backend.
+   b. Frontend (React)
+   The frontend is a single-page application (SPA) built with React. It provides a user-friendly interface for interacting with the backend.
 
-Key Components
-Pages:
+   Key Components
+   Pages:
 
-Home Page: Displays a welcome message and a brief description of the application.
+   Home Page: Displays a welcome message and a brief description of the application.
 
-Login Page: Allows users to log in using their username and password.
+   Login Page: Allows users to log in using their username and password.
 
-Register Page: Allows new users to register.
+   Register Page: Allows new users to register.
 
-Dashboard Page: Displays the user's activities and goals.
+   Dashboard Page: Displays the user's activities and goals.
 
-Components:
+   Components:
 
-Navbar: Provides navigation links to the Home, Login, Register, and Dashboard pages.
+   Navbar: Provides navigation links to the Home, Login, Register, and Dashboard pages.
 
-ActivityList: Displays a list of activities in a table format.
+   ActivityList: Displays a list of activities in a table format.
 
-GoalList: Displays a list of goals in a table format.
+   GoalList: Displays a list of goals in a table format.
 
-AddActivity: Provides a form for users to log a new activity.
+   AddActivity: Provides a form for users to log a new activity.
 
-AddGoal: Provides a form for users to set a new goal.
+   AddGoal: Provides a form for users to set a new goal.
 
-EditActivityForm: Provides a form for users to edit an existing activity.
+   EditActivityForm: Provides a form for users to edit an existing activity.
 
-EditGoalForm: Provides a form for users to edit an existing goal.
+   EditGoalForm: Provides a form for users to edit an existing goal.
 
-State Management:
+   State Management:
 
-Uses React's useState and useEffect hooks to manage component state and fetch data from the backend.
+   Uses React's useState and useEffect hooks to manage component state and fetch data from the backend.
 
-JWT tokens are stored in localStorage to persist user sessions.
+   JWT tokens are stored in localStorage to persist user sessions.
 
-Responsive Design:
+   Responsive Design:
 
-The application is fully responsive, ensuring it works well on mobile, tablet, and desktop devices.
+   The application is fully responsive, ensuring it works well on mobile, tablet, and desktop devices.
 
-Media queries are used to adjust layouts, font sizes, and padding for different screen sizes.
+   Media queries are used to adjust layouts, font sizes, and padding for different screen sizes.
 
-4. Workflow
-   a. User Workflow
-   Register: A new user registers by providing a username, email, and password.
+   4. Workflow
+      a. User Workflow
+      Register: A new user registers by providing a username, email, and password.
 
-Login: The user logs in using their credentials and receives a JWT token.
+   Login: The user logs in using their credentials and receives a JWT token.
 
-Dashboard:
+   Dashboard:
 
-The user can log activities and set goals.
+   The user can log activities and set goals.
 
-The user can view, edit, or delete their activities and goals.
+   The user can view, edit, or delete their activities and goals.
 
-The user can update their profile information.
+   The user can update their profile information.
 
-b. Admin Workflow
-Login: The admin logs in using their credentials and receives a JWT token.
+   b. Admin Workflow
+   Login: The admin logs in using their credentials and receives a JWT token.
 
-Dashboard:
+   Dashboard:
 
-The admin can view all activities and goals.
+   The admin can view all activities and goals.
 
-The admin can edit or delete any activity or goal.
+   The admin can edit or delete any activity or goal.
 
-5. Technologies Used
-   Backend
-   Spring Boot: Framework for building the backend.
+   5. Technologies Used
+      Backend
+      Spring Boot: Framework for building the backend.
 
    Spring Security: For authentication and authorization.
 
@@ -192,9 +192,9 @@ The admin can edit or delete any activity or goal.
 
    CSS: For styling the application.
 
-6. How to Run the Project
-   Backend
-   Set up a MySQL database and update the application.properties file with your database credentials.
+   6. How to Run the Project
+      Backend
+      Set up a MySQL database and update the application.properties file with your database credentials.
 
    Run the Spring Boot application using your IDE or the command line:
 
@@ -210,5 +210,6 @@ The admin can edit or delete any activity or goal.
    Start the development server:
    npm start
 
-7. Conclusion
+3. Conclusion
+
    This Fitness Tracker Application is a comprehensive solution for tracking fitness activities and goals. It demonstrates the use of modern technologies like Spring Boot, React, and JWT for building secure and scalable applications. With its user-friendly interface and robust backend, it provides a seamless experience for users and admins alike. Future enhancements like progress tracking, social features, and notifications will further improve its functionality and user engagement. Let me know if you need further clarification or assistance!
