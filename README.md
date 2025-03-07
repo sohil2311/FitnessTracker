@@ -3,6 +3,7 @@
 This project is a Fitness Tracker Application designed to help users track their fitness activities and goals. It is a full-stack application built with a Spring Boot backend and a React frontend. The application supports two types of users: Admin and Regular Users. Below is a detailed description of the project, including its features, architecture, and future enhancements.
 
 1. Project Overview
+
    The Fitness Tracker Application allows users to:
 
    Log fitness activities (e.g., running, cycling) with details like type, duration, calories burned, and date.
@@ -16,6 +17,7 @@ This project is a Fitness Tracker Application designed to help users track their
    The application is secure, scalable, and responsive, ensuring a seamless user experience across devices.
 
 2. Key Features
+
    a. User Features
    User Registration:
 
@@ -72,6 +74,7 @@ This project is a Fitness Tracker Application designed to help users track their
    Users receive reminders for upcoming goals or activities.
 
 3. Architecture
+
    a. Backend (Spring Boot)
    The backend is built using Spring Boot and provides RESTful APIs for the frontend. It handles user authentication, activity and goal management, and data storage.
 
@@ -149,6 +152,7 @@ This project is a Fitness Tracker Application designed to help users track their
    Media queries are used to adjust layouts, font sizes, and padding for different screen sizes.
 
 4. Workflow
+
    a. User Workflow
    Register: A new user registers by providing a username, email, and password.
 
@@ -172,6 +176,7 @@ This project is a Fitness Tracker Application designed to help users track their
    The admin can edit or delete any activity or goal.
 
 5. Technologies Used
+
    Backend
    Spring Boot: Framework for building the backend.
 
@@ -193,6 +198,7 @@ This project is a Fitness Tracker Application designed to help users track their
    CSS: For styling the application.
 
 6. How to Run the Project
+
    Backend
    Set up a MySQL database and update the application.properties file with your database credentials.
 
