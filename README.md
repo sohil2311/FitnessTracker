@@ -19,6 +19,7 @@ This project is a Fitness Tracker Application designed to help users track their
 2. Key Features
 
    a. User Features
+
    User Registration:
 
    Users can create an account by providing a username, email, and password.
@@ -48,6 +49,7 @@ This project is a Fitness Tracker Application designed to help users track their
    Users can update their profile information (e.g., email, password).
 
    b. Admin Features
+
    View All Activities:
 
    Admins can view all activities logged by all users.
@@ -61,6 +63,7 @@ This project is a Fitness Tracker Application designed to help users track their
    Admins can edit or delete any activity or goal.
 
    c. Additional Features
+
    Progress Tracking:
 
    Charts or graphs are provided to visualize progress toward fitness goals.
@@ -76,9 +79,11 @@ This project is a Fitness Tracker Application designed to help users track their
 3. Architecture
 
    a. Backend (Spring Boot)
+
    The backend is built using Spring Boot and provides RESTful APIs for the frontend. It handles user authentication, activity and goal management, and data storage.
 
    Key Components
+
    User Authentication:
 
    Uses Spring Security for authentication and authorization.
@@ -110,9 +115,11 @@ This project is a Fitness Tracker Application designed to help users track their
    Role-based access control ensures that only admins can access certain endpoints.
 
    b. Frontend (React)
+
    The frontend is a single-page application (SPA) built with React. It provides a user-friendly interface for interacting with the backend.
 
    Key Components
+
    Pages:
 
    Home Page: Displays a welcome message and a brief description of the application.
@@ -154,6 +161,7 @@ This project is a Fitness Tracker Application designed to help users track their
 4. Workflow
 
    a. User Workflow
+
    Register: A new user registers by providing a username, email, and password.
 
    Login: The user logs in using their credentials and receives a JWT token.
@@ -167,6 +175,7 @@ This project is a Fitness Tracker Application designed to help users track their
    The user can update their profile information.
 
    b. Admin Workflow
+
    Login: The admin logs in using their credentials and receives a JWT token.
 
    Dashboard:
@@ -178,6 +187,7 @@ This project is a Fitness Tracker Application designed to help users track their
 5. Technologies Used
 
    Backend
+
    Spring Boot: Framework for building the backend.
 
    Spring Security: For authentication and authorization.
@@ -189,6 +199,7 @@ This project is a Fitness Tracker Application designed to help users track their
    Maven: Dependency management.
 
    Frontend
+
    React: JavaScript library for building the user interface.
 
    Axios: For making HTTP requests to the backend.
@@ -200,6 +211,7 @@ This project is a Fitness Tracker Application designed to help users track their
 6. How to Run the Project
 
    Backend
+
    Set up a MySQL database and update the application.properties file with your database credentials.
 
    Run the Spring Boot application using your IDE or the command line:
@@ -207,6 +219,7 @@ This project is a Fitness Tracker Application designed to help users track their
    mvn spring-boot:run
 
    Frontend
+
    Navigate to the frontend directory:
    cd frontend
 
