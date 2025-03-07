@@ -71,9 +71,9 @@ This project is a Fitness Tracker Application designed to help users track their
 
    Users receive reminders for upcoming goals or activities.
 
-   3. Architecture
-      a. Backend (Spring Boot)
-      The backend is built using Spring Boot and provides RESTful APIs for the frontend. It handles user authentication, activity and goal management, and data storage.
+3. Architecture
+   a. Backend (Spring Boot)
+   The backend is built using Spring Boot and provides RESTful APIs for the frontend. It handles user authentication, activity and goal management, and data storage.
 
    Key Components
    User Authentication:
@@ -148,9 +148,9 @@ This project is a Fitness Tracker Application designed to help users track their
 
    Media queries are used to adjust layouts, font sizes, and padding for different screen sizes.
 
-   4. Workflow
-      a. User Workflow
-      Register: A new user registers by providing a username, email, and password.
+4. Workflow
+   a. User Workflow
+   Register: A new user registers by providing a username, email, and password.
 
    Login: The user logs in using their credentials and receives a JWT token.
 
@@ -171,9 +171,9 @@ This project is a Fitness Tracker Application designed to help users track their
 
    The admin can edit or delete any activity or goal.
 
-   5. Technologies Used
-      Backend
-      Spring Boot: Framework for building the backend.
+5. Technologies Used
+   Backend
+   Spring Boot: Framework for building the backend.
 
    Spring Security: For authentication and authorization.
 
@@ -192,9 +192,9 @@ This project is a Fitness Tracker Application designed to help users track their
 
    CSS: For styling the application.
 
-   6. How to Run the Project
-      Backend
-      Set up a MySQL database and update the application.properties file with your database credentials.
+6. How to Run the Project
+   Backend
+   Set up a MySQL database and update the application.properties file with your database credentials.
 
    Run the Spring Boot application using your IDE or the command line:
 
@@ -210,6 +210,6 @@ This project is a Fitness Tracker Application designed to help users track their
    Start the development server:
    npm start
 
-3. Conclusion
+7. Conclusion
 
    This Fitness Tracker Application is a comprehensive solution for tracking fitness activities and goals. It demonstrates the use of modern technologies like Spring Boot, React, and JWT for building secure and scalable applications. With its user-friendly interface and robust backend, it provides a seamless experience for users and admins alike. Future enhancements like progress tracking, social features, and notifications will further improve its functionality and user engagement. Let me know if you need further clarification or assistance!
