@@ -1,9 +1,8 @@
 # Stage 1: Build the JAR file
 FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
-
-# Copy the entire project
 COPY . .
+RUN mvn clean package -DskipTests
 
 # Grant execute permissions to mvnw
 RUN chmod +x mvnw
