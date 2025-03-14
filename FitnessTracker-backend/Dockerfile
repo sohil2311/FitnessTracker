@@ -3,10 +3,10 @@ FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 
 # Ensure COPY command points to the correct directory
-COPY FitnessTracker-backend/pom.xml .  
+COPY pom.xml .  
 RUN mvn dependency:go-offline
 
-COPY FitnessTracker-backend/ .  
+COPY . .  
 RUN mvn clean package -DskipTests
 
 # Use a smaller JDK image to run the application
