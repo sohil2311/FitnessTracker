@@ -1,12 +1,15 @@
-# Stage 1: Build the JAR file
+# Use Maven to build the application
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
-COPY pom.xml .
+
+# Ensure COPY command points to the correct directory
+COPY FitnessTracker-backend/pom.xml .  
 RUN mvn dependency:go-offline
-COPY . .
+
+COPY FitnessTracker-backend/ .  
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the application
+# Use a smaller JDK image to run the application
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/FitnessTracker-backend-0.0.1-SNAPSHOT.jar /app/FitnessTracker-backend.jar
