@@ -32,5 +32,7 @@ build/
 .vscode/
 
 # Include the JAR file in the target directory
+!pom.xml
+!src/
 target/
 !target/FitnessTracker-backend-0.0.1-SNAPSHOT.jar
