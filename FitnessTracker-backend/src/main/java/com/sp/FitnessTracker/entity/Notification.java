@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Notification {
@@ -21,7 +20,6 @@ public class Notification {
     @JsonBackReference
     private User user;
 
-    
     public Long getId() {
         return id;
     }

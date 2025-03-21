@@ -3,8 +3,6 @@ package com.sp.FitnessTracker.entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-import com.sp.FitnessTracker.dto.SharedGoalDTO;
-
 @Entity
 public class SharedGoal {
     @Id
@@ -65,6 +63,5 @@ public class SharedGoal {
     public void setSharedAt(LocalDateTime sharedAt) {
         this.sharedAt = sharedAt;
     }
-    
-   
+
 }

@@ -20,53 +20,47 @@ import com.sp.FitnessTracker.dto.NotificationDTO;
 import com.sp.FitnessTracker.dto.SharedActivityDTO;
 import com.sp.FitnessTracker.dto.SharedGoalDTO;
 import com.sp.FitnessTracker.entity.LoginRequest;
-import com.sp.FitnessTracker.entity.Notification;
 import com.sp.FitnessTracker.entity.ShareGoalRequest;
 import com.sp.FitnessTracker.entity.ShareRequest;
-import com.sp.FitnessTracker.entity.SharedActivity;
-import com.sp.FitnessTracker.entity.SharedGoal;
 import com.sp.FitnessTracker.entity.User;
 import com.sp.FitnessTracker.service.UserService;
 
 @RestController
 @RequestMapping("/api/auth")
 public class UserController {
-	
-	@Autowired
+
+    @Autowired
     private UserService userService;
-    
+
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
         return ResponseEntity.ok(userService.registerUser(user));
     }
-    
-    
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest authRequest) {
-    	
+
         try {
             return ResponseEntity.ok(userService.login(authRequest));
-        } 
-        
+        }
+
         catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
     }
-    
-
 
     @GetMapping("/profile")
     public ResponseEntity<?> getUserProfile(@RequestHeader("Authorization") String token) {
-        
+
         try {
             return ResponseEntity.ok(userService.getUserProfile(token));
-        } 
-        
+        }
+
         catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
     }
-    
+
     @PutMapping("/update-profile")
     public ResponseEntity<String> updateProfile(
             @RequestBody User updatedUser,
@@ -90,7 +84,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update password.");
         }
     }
-    
+
     @PostMapping("/share")
     public ResponseEntity<String> share(
             @RequestBody ShareRequest shareRequest,
@@ -102,7 +96,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to share activity.");
         }
     }
-    
+
     @GetMapping("/shared-activities")
     public ResponseEntity<List<SharedActivityDTO>> getSharedActivities(@RequestHeader("Authorization") String token) {
         try {
@@ -112,7 +106,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-    
+
     @DeleteMapping("/shared-activities/{id}")
     public ResponseEntity<String> deleteSharedActivity(
             @PathVariable Long id,
@@ -124,7 +118,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete shared activity.");
         }
     }
-    
+
     @PostMapping("/share-goal")
     public ResponseEntity<String> shareGoal(
             @RequestBody ShareGoalRequest shareGoalRequest,
@@ -136,7 +130,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to share goal.");
         }
     }
-    
+
     @GetMapping("/shared-goals")
     public ResponseEntity<List<SharedGoalDTO>> getSharedGoals(@RequestHeader("Authorization") String token) {
         try {
@@ -146,7 +140,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-    
+
     @DeleteMapping("/shared-goals/{id}")
     public ResponseEntity<String> deleteSharedGoal(
             @PathVariable Long id,
@@ -158,7 +152,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete shared goal.");
         }
     }
-    
+
     @GetMapping("/notifications")
     public ResponseEntity<List<NotificationDTO>> getNotifications(@RequestHeader("Authorization") String token) {
         try {
@@ -168,7 +162,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-    
+
     @DeleteMapping("/notifications/{id}")
     public ResponseEntity<String> deleteNotification(
             @PathVariable Long id,
@@ -181,4 +175,3 @@ public class UserController {
         }
     }
 }
-

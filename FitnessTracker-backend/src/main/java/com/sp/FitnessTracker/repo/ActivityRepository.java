@@ -11,8 +11,9 @@ import com.sp.FitnessTracker.entity.User;
 
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 	List<Activity> findByUser(User user);
-	
+
 	List<Activity> findByUserAndDateBetween(User user, LocalDate startDate, LocalDate endDate);
-	
+
+	@SuppressWarnings("null")
 	Optional<Activity> findById(Long id);
 }

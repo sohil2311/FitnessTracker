@@ -1,47 +1,38 @@
 package com.sp.FitnessTracker.entity;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 public class Activity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(nullable = false)
-    private String type;
+	@Column(nullable = false)
+	private String type;
 
-    @Column(nullable = false)
-    private int duration;
+	@Column(nullable = false)
+	private int duration;
 
-    @Column(nullable = false)
-    private int caloriesBurned;
-    
+	@Column(nullable = false)
+	private int caloriesBurned;
 
-    @Column(nullable = false)
-    private LocalDate date;
+	@Column(nullable = false)
+	private LocalDate date;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonBackReference
-    private User user;
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
+	@JsonBackReference
+	private User user;
 
 	public Long getId() {
 		return id;
@@ -91,9 +82,8 @@ public class Activity {
 		this.user = user;
 	}
 
-
 	public Activity() {
-		
+
 	}
 
 	public Activity(Long id, String type, int duration, int caloriesBurned, LocalDate date,
@@ -106,9 +96,5 @@ public class Activity {
 		this.date = date;
 		this.user = user;
 	}
-	
-	
 
-    
 }
-

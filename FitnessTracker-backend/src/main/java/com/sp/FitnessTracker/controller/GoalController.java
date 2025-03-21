@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sp.FitnessTracker.dto.GoalDTO;
@@ -34,21 +33,18 @@ public class GoalController {
         return ResponseEntity.ok("Goal added successfully...");
     }
 
- 
     @GetMapping
     public ResponseEntity<List<GoalDTO>> getAllGoals(@RequestHeader("Authorization") String token) {
         List<GoalDTO> goals = goalService.getAllGoals(token);
         return ResponseEntity.ok(goals);
     }
 
-    
     @GetMapping("/user")
     public ResponseEntity<List<GoalDTO>> getUserGoals(@RequestHeader("Authorization") String token) {
         List<GoalDTO> goals = goalService.getUserGoals(token);
         return ResponseEntity.ok(goals);
     }
-    
-    
+
     @PutMapping("/edit/{id}")
     public ResponseEntity<String> editGoal(
             @PathVariable Long id,
@@ -73,7 +69,7 @@ public class GoalController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete goal.");
         }
     }
-    
+
     @GetMapping("/progress")
     public ResponseEntity<List<GoalProgress>> getProgress(@RequestHeader("Authorization") String token) {
         try {

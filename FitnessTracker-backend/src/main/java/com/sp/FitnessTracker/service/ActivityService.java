@@ -9,9 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.sp.FitnessTracker.dto.ActivityDTO;
-import com.sp.FitnessTracker.dto.GoalDTO;
 import com.sp.FitnessTracker.entity.Activity;
-import com.sp.FitnessTracker.entity.Goal;
 import com.sp.FitnessTracker.entity.User;
 import com.sp.FitnessTracker.models.Role;
 import com.sp.FitnessTracker.repo.ActivityRepository;
@@ -25,17 +23,17 @@ public class ActivityService {
 
     @Autowired
     private UserRepository userRepository;
-    
+
     @Autowired
     private JwtService jwtService;
 
     public Activity logActivity(Activity activity, String token) {
-    	
-    	String usernameFromToken = extractUsernameFromToken(token);
-    	
-    	User user = userRepository.findByUsername(usernameFromToken)
-    	        .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + usernameFromToken));
-    	
+
+        String usernameFromToken = extractUsernameFromToken(token);
+
+        User user = userRepository.findByUsername(usernameFromToken)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + usernameFromToken));
+
         activity.setUser(user);
         return activityRepository.save(activity);
     }
@@ -51,7 +49,7 @@ public class ActivityService {
 
         List<Activity> activities = activityRepository.findAll();
         return activities.stream()
-                .map(activity -> new ActivityDTO(activity, activity.getUser().getUsername())) 
+                .map(activity -> new ActivityDTO(activity, activity.getUser().getUsername()))
                 .collect(Collectors.toList());
     }
 
@@ -62,7 +60,7 @@ public class ActivityService {
 
         List<Activity> activities = activityRepository.findByUser(user);
         return activities.stream()
-                .map(activity -> new ActivityDTO(activity, activity.getUser().getUsername())) 
+                .map(activity -> new ActivityDTO(activity, activity.getUser().getUsername()))
                 .collect(Collectors.toList());
     }
 
@@ -70,8 +68,7 @@ public class ActivityService {
         String jwtToken = token.startsWith("Bearer ") ? token.substring(7) : token;
         return jwtService.extractUsername(jwtToken);
     }
-    
-    
+
     public void editActivity(Long id, Activity updatedActivity, String token) {
         String username = extractUsernameFromToken(token);
         User user = userRepository.findByUsername(username)
@@ -107,8 +104,7 @@ public class ActivityService {
                 throw new AccessDeniedException("You are not authorized to delete this activity.");
             }
         }
-        
+
         activityRepository.delete(activity);
     }
 }
-

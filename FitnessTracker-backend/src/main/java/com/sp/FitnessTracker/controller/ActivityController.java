@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sp.FitnessTracker.dto.ActivityDTO;
@@ -28,12 +27,13 @@ public class ActivityController {
 
     @Autowired
     private ActivityService activityService;
-    
+
     @Autowired
     private UserService userService;
 
     @PostMapping("/add")
-    public ResponseEntity<String> logActivity(@RequestBody Activity activity, @RequestHeader("Authorization") String token) {
+    public ResponseEntity<String> logActivity(@RequestBody Activity activity,
+            @RequestHeader("Authorization") String token) {
         try {
             System.out.println("Received activity: " + activity);
             activityService.logActivity(activity, token);
@@ -44,21 +44,18 @@ public class ActivityController {
         }
     }
 
- 
     @GetMapping
     public ResponseEntity<List<ActivityDTO>> getAllActivities(@RequestHeader("Authorization") String token) {
         List<ActivityDTO> activities = activityService.getAllActivities(token);
         return ResponseEntity.ok(activities);
     }
 
-    
     @GetMapping("/user")
     public ResponseEntity<List<ActivityDTO>> getUserActivities(@RequestHeader("Authorization") String token) {
         List<ActivityDTO> activities = activityService.getUserActivities(token);
         return ResponseEntity.ok(activities);
     }
-    
-    
+
     @PutMapping("/edit/{id}")
     public ResponseEntity<String> editActivity(
             @PathVariable Long id,
@@ -83,7 +80,7 @@ public class ActivityController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete activity.");
         }
     }
-    
+
     @PostMapping("/share")
     public ResponseEntity<String> share(
             @RequestBody ShareRequest shareRequest,
@@ -96,4 +93,3 @@ public class ActivityController {
         }
     }
 }
-

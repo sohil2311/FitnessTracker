@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class SharedActivity {
@@ -29,7 +28,6 @@ public class SharedActivity {
 
     private LocalDateTime sharedAt;
 
-    
     public Long getId() {
         return id;
     }
