@@ -36,7 +36,7 @@ const ProgressPage = () => {
 
     const fetchProgress = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/goals/progress", {
+        const response = await axios.get('${process.env.API_URL}/api/goals/progress', {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Progress Data:", response.data); 

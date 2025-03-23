@@ -10,7 +10,7 @@ const NotificationsPage = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/auth/notifications", {
+        const response = await axios.get('${process.env.API_URL}/api/auth/notifications', {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("API Response:", response);
@@ -27,7 +27,7 @@ const NotificationsPage = () => {
 
   const handleDeleteNotification = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/auth/notifications/${id}`, {
+      await axios.delete(`${process.env.API_URL}/api/auth/notifications/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       

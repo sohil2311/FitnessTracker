@@ -20,7 +20,7 @@ const ProfilePage = () => {
     } else {
       const fetchProfile = async () => {
         try {
-          const response = await axios.get("http://localhost:8080/api/auth/profile", {
+          const response = await axios.get('${process.env.API_URL}/api/auth/profile', {
             headers: { Authorization: `Bearer ${token}` },
           });
           setEmail(response.data.email); 
@@ -39,7 +39,7 @@ const ProfilePage = () => {
   const handleUpdateProfile = async () => {
     try {
       await axios.put(
-        "http://localhost:8080/api/auth/update-profile",
+        '${process.env.API_URL}/api/auth/update-profile',
         { email },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -54,7 +54,7 @@ const ProfilePage = () => {
   const handleUpdatePassword = async () => {
     try {
       await axios.put(
-        "http://localhost:8080/api/auth/update-password",
+        '${process.env.API_URL}/api/auth/update-password',
         { currentPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
       );
