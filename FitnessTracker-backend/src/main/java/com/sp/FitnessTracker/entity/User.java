@@ -22,42 +22,43 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "\"user\"")
 public class User implements UserDetails {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	@Column(unique = true, nullable = false)
-    private String username;
-	
+	private String username;
+
 	@Column(unique = true, nullable = false)
-    private String email;
-    
-    @Column(nullable = false)
-    private String password;
-   
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role role; 
-    
-    @OneToMany(mappedBy = "user")
-    @JsonManagedReference
-    private List<Activity> activities = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "user")
-    @JsonBackReference
-    private List<Goal> goals = new ArrayList<>();
-    
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
-    private List<Notification> notifications;
-    
-    public User() {
-    }
-    
+	private String email;
+
+	@Column(nullable = false)
+	private String password;
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private Role role;
+
+	@OneToMany(mappedBy = "user")
+	@JsonManagedReference
+	private List<Activity> activities = new ArrayList<>();
+
+	@OneToMany(mappedBy = "user")
+	@JsonBackReference
+	private List<Goal> goals = new ArrayList<>();
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	private List<Notification> notifications;
+
+	public User() {
+	}
 
 	public Long getId() {
 		return id;
@@ -74,7 +75,6 @@ public class User implements UserDetails {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
 
 	public String getEmail() {
 		return email;
@@ -84,7 +84,6 @@ public class User implements UserDetails {
 		this.email = email;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
@@ -92,7 +91,7 @@ public class User implements UserDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public Role getRole() {
 		return role;
 	}
@@ -100,8 +99,6 @@ public class User implements UserDetails {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
-	
 
 	public List<Goal> getGoals() {
 		return goals;
@@ -111,28 +108,21 @@ public class User implements UserDetails {
 		this.goals = goals;
 	}
 
-	
 	public List<Activity> getActivities() {
 		return activities;
 	}
-
 
 	public void setActivities(List<Activity> activities) {
 		this.activities = activities;
 	}
 
-
 	public List<Notification> getNotifications() {
 		return notifications;
 	}
 
-
 	public void setNotifications(List<Notification> notifications) {
 		this.notifications = notifications;
 	}
-
-
-	
 
 	public User(Long id, String username, String email, String password, Role role, List<Activity> activities,
 			List<Goal> goals, List<Notification> notifications) {
@@ -147,33 +137,29 @@ public class User implements UserDetails {
 		this.notifications = notifications;
 	}
 
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-	    return List.of(new SimpleGrantedAuthority(role.name()));
+		return List.of(new SimpleGrantedAuthority(role.name()));
 	}
-	
+
 	@Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+	public boolean isAccountNonExpired() {
+		return true;
+	}
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-	   
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
 }
-
-
-
