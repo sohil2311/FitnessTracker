@@ -30,7 +30,6 @@ public class User implements UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "serial")
 	private Long id;
 
 	@Column(unique = true, nullable = false)
