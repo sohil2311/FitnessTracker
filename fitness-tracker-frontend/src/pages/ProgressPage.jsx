@@ -36,7 +36,7 @@ const ProgressPage = () => {
 
     const fetchProgress = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/goals/progress`
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/goals/progress`
 , {
           headers: { Authorization: `Bearer ${token}` },
         });

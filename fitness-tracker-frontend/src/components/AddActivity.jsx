@@ -12,7 +12,7 @@ const AddActivity = () => {
     e.preventDefault();
     try {
       await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/activities/add`,
+        `${import.meta.env.VITE_API_URL}/api/activities/add`,
         { type, duration, caloriesBurned, date },
         { headers: { Authorization: `Bearer ${token}` } }
       );

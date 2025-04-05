@@ -16,7 +16,7 @@ const SharedGoalsPage = () => {
 
     const fetchSharedGoals = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/shared-goals`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/shared-goals`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Shared Goals Data:", response.data); // Log the data
@@ -33,7 +33,7 @@ const SharedGoalsPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/api/auth/shared-goals/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/auth/shared-goals/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

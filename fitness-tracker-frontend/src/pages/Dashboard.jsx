@@ -40,16 +40,16 @@ const Dashboard = () => {
         if (adminCheck) {
           
           const [activitiesResponse, goalsResponse] = await Promise.all([
-            axios.get(`${process.env.REACT_APP_API_URL}/api/activities`, { headers }),
-            axios.get(`${process.env.REACT_APP_API_URL}/api/goals`, { headers }),
+            axios.get(`${import.meta.env.VITE_API_URL}/api/activities`, { headers }),
+            axios.get(`${import.meta.env.VITE_API_URL}/api/goals`, { headers }),
           ]);
           setActivities(activitiesResponse.data);
           setGoals(goalsResponse.data);
         } else {
           
           const [activitiesResponse, goalsResponse] = await Promise.all([
-            axios.get(`${process.env.REACT_APP_API_URL}/api/activities/user`, { headers }),
-            axios.get(`${process.env.REACT_APP_API_URL}/api/goals/user`, { headers }),
+            axios.get(`${import.meta.env.VITE_API_URL}/api/activities/user`, { headers }),
+            axios.get(`${import.meta.env.VITE_API_URL}/api/goals/user`, { headers }),
           ]);
           setActivities(activitiesResponse.data);
           setGoals(goalsResponse.data);
@@ -75,7 +75,7 @@ const Dashboard = () => {
     try {
       const headers = { Authorization: `Bearer ${token}` };
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/api/activities/edit/${updatedActivity.id}`,
+        `${import.meta.env.VITE_API_URL}/api/activities/edit/${updatedActivity.id}`,
         updatedActivity,
         { headers }
       );
@@ -93,7 +93,7 @@ const Dashboard = () => {
   
   const handleDeleteActivity = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/api/activities/delete/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/activities/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setActivities(activities.filter((activity) => activity.id !== id)); 
@@ -112,7 +112,7 @@ const Dashboard = () => {
     try {
       const headers = { Authorization: `Bearer ${token}` };
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/api/goals/edit/${updatedGoal.id}`,
+        `${import.meta.env.VITE_API_URL}/api/goals/edit/${updatedGoal.id}`,
         updatedGoal,
         { headers }
       );
@@ -130,7 +130,7 @@ const Dashboard = () => {
   
   const handleDeleteGoal = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/api/goals/delete/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/goals/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGoals(goals.filter((goal) => goal.id !== id)); 

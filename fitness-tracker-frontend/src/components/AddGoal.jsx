@@ -13,7 +13,7 @@ const AddGoal = () => {
     e.preventDefault();
     try {
       await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/goals/add`,
+        `${import.meta.env.VITE_API_URL}/api/goals/add`,
         { description, target, targetType, startDate, endDate },
         { headers: { Authorization: `Bearer ${token}` } }
       );

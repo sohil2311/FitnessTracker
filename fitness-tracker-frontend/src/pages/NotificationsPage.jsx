@@ -10,7 +10,7 @@ const NotificationsPage = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get('${process.env.API_URL}/api/auth/notifications', {
+        const response = await axios.get('${import.meta.env.VITE_API_URL}/api/auth/notifications', {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("API Response:", response);
