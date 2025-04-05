@@ -20,6 +20,8 @@ const Login = () => {
         password,
       });
 
+      console.log("API URL:", process.env.REACT_APP_API_URL);
+
       console.log("Login API Response:", response.data);
       
       localStorage.setItem("token", response.data.body.token);
