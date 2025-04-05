@@ -23,7 +23,8 @@ const SharePage = () => {
     setIsActivityLoading(true);
     try {
       await axios.post(
-        '${process.env.API_URL}/api/auth/share',
+        `${process.env.REACT_APP_API_URL}/api/auth/share`
+,
         { activityId, recipientUsername },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -50,7 +51,7 @@ const SharePage = () => {
     setIsGoalLoading(true);
     try {
       await axios.post(
-        '${process.env.API_URL}/api/auth/share-goal',
+        `${process.env.REACT_APP_API_URL}/api/auth/share-goal`,
         { goalId, recipientUsername },
         { headers: { Authorization: `Bearer ${token}` } }
       );

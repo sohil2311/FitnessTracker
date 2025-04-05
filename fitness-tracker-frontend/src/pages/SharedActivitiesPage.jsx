@@ -16,7 +16,8 @@ const SharedActivitiesPage = () => {
 
     const fetchSharedActivities = async () => {
       try {
-        const response = await axios.get('${process.env.API_URL}/api/auth/shared-activities', {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/shared-activities` // ✅ Works
+, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("Shared Activities Data:", response.data); 
@@ -34,7 +35,8 @@ const SharedActivitiesPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${process.env.API_URL}/api/auth/shared-activities/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/auth/shared-activities/${id}`
+, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

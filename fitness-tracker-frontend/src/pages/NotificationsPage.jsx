@@ -27,7 +27,8 @@ const NotificationsPage = () => {
 
   const handleDeleteNotification = async (id) => {
     try {
-      await axios.delete(`${process.env.API_URL}/api/auth/notifications/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/auth/notifications/${id}`
+, {
         headers: { Authorization: `Bearer ${token}` },
       });
       
