@@ -54,7 +54,7 @@ const ProfilePage = () => {
   const handleUpdatePassword = async () => {
     try {
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/api/auth/update-password`
+        `${import.meta.env.VITE_API_URL}/api/auth/update-password`
 ,
         { currentPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
