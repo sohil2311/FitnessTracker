@@ -53,7 +53,7 @@ public class UserController {
     public ResponseEntity<?> getUserProfile(@RequestHeader("Authorization") String token) {
 
         try {
-            return ResponseEntity.ok(userService.getUserProfile(token));
+            return userService.getUserProfile(token);
         }
 
         catch (Exception e) {
