@@ -18,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.sp.FitnessTracker.dto.NotificationDTO;
 import com.sp.FitnessTracker.dto.SharedActivityDTO;
 import com.sp.FitnessTracker.dto.SharedGoalDTO;
+import com.sp.FitnessTracker.dto.UserDTO;
 import com.sp.FitnessTracker.entity.Activity;
 import com.sp.FitnessTracker.entity.AuthResponse;
 import com.sp.FitnessTracker.entity.Goal;
@@ -110,7 +111,7 @@ public class UserService {
                 return ResponseEntity.ok(new AuthResponse(token));
         }
 
-        public ResponseEntity<User> getUserProfile(String token) {
+        public ResponseEntity<UserDTO> getUserProfile(String token) {
 
                 String jwtToken = token.startsWith("Bearer ") ? token.substring(7) : token;
                 String username = jwtService.extractUsername(jwtToken);
@@ -118,7 +119,9 @@ public class UserService {
                 User user = userRepository.findByUsername(username)
                                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-                return ResponseEntity.ok(user);
+                UserDTO userDTO = new UserDTO(user);
+
+                return ResponseEntity.ok(userDTO);
 
         }
 
