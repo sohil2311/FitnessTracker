@@ -20,7 +20,7 @@ const ProfilePage = () => {
     } else {
       const fetchProfile = async () => {
         try {
-          const response = await axios.get('${import.meta.env.VITE_API_URL}/api/auth/profile', {
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/profile`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           setEmail(response.data.email); 
@@ -39,7 +39,7 @@ const ProfilePage = () => {
   const handleUpdateProfile = async () => {
     try {
       await axios.put(
-        '${import.meta.env.VITE_API_URL}/api/auth/update-profile',
+        `${import.meta.env.VITE_API_URL}/api/auth/update-profile`,
         { email },
         { headers: { Authorization: `Bearer ${token}` } }
       );
