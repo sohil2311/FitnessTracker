@@ -119,7 +119,7 @@ public class UserService {
                 User user = userRepository.findByUsername(username)
                                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-                UserDTO userDTO = new UserDTO(user);
+                UserDTO userDTO = new UserDTO(user.getUsername());
 
                 return ResponseEntity.ok(userDTO);
 
