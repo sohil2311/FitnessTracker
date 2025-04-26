@@ -6,21 +6,25 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  animation: fadeInBackground 2s ease-in-out;
 }
 
 .app {
   min-height: 100vh;
   padding: 20px;
+  animation: fadeIn 1.5s ease-in;
 }
 
 .navbar {
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.9);
   padding: 10px 20px;
   margin-bottom: 20px;
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  animation: slideInFromTop 1s ease;
 }
 
 .nav-link {
@@ -29,11 +33,14 @@ body {
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .nav-link:hover {
   background-color: #555;
+  transform: translateY(-2px);
 }
 
 .dashboard,
@@ -41,10 +48,7 @@ body {
 .addGoal,
 .activities,
 .goals,
-.profile-page,
-.share-page,
 .notifications-page,
-.progress-page,
 .shared-activities-page,
 .shared-goals-page {
   max-width: 600px;
@@ -53,6 +57,7 @@ body {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease;
 }
 
 .login, .register {
@@ -62,6 +67,7 @@ body {
   background: rgba(255, 255, 255, 0.9); 
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: zoomIn 0.8s ease;
 }
 
 h2 {
@@ -87,9 +93,26 @@ h2 {
 .loading {
   text-align: center;
   font-size: 1.2em;
-  color: #007bff;
   margin-top: 20px;
+  color: #007bff;
+  position: relative;
+  padding-left: 40px;
 }
+
+.loading::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: 3px solid #007bff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
 
 .error {
   text-align: center;
@@ -105,6 +128,7 @@ h2 {
   border: 1px solid #ff4d4d;
   border-radius: 8px;
   margin: 20px;
+  animation: shake 0.5s;
 }
 
 .error-boundary h2 {
@@ -142,11 +166,17 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 table {
@@ -223,6 +253,7 @@ button.delete-button:hover {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
 }
 
 .home-content h1 {
@@ -257,6 +288,7 @@ button.delete-button:hover {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease;
 }
 
 .profile-page label {
@@ -327,6 +359,7 @@ button.delete-button:hover {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .progress-page .chart-container {
@@ -347,6 +380,7 @@ button.delete-button:hover {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .share-page h2 {
@@ -363,7 +397,7 @@ button.delete-button:hover {
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 1px;
 }
 
 .form-group label {
@@ -380,24 +414,64 @@ button.delete-button:hover {
   font-size: 16px;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+@keyframes fadeInBackground {
+  from {
+    background-position: top;
+    opacity: 0;
+  }
+  to {
+    background-position: center;
+    opacity: 1;
+  }
 }
 
-button:hover {
-  background-color: #0056b3;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
@@ -449,17 +523,20 @@ button:disabled {
 
 @media (max-width: 480px) {
   .navbar {
-    flex-direction: column;
-    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
   }
 
   .nav-link {
-    width: 100%;
-    text-align: center;
+    font-size: 14px;
+    padding: 5px 8px;
   }
 
   table {
     font-size: 14px;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
   }
 
   th, td {
@@ -476,6 +553,25 @@ button:disabled {
 
   button {
     padding: 5px 8px;
-    font-size: 11px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dashboard,
+  .addActivity,
+  .addGoal,
+  .activities,
+  .goals,
+  .login,
+  .register,
+  .profile-page,
+  .share-page,
+  .notifications-page,
+  .progress-page,
+  .shared-activities-page,
+  .shared-goals-page {
+    max-width: 1000px;
+    padding: 30px;
   }
 }
