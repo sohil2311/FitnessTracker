@@ -556,22 +556,3 @@ button.delete-button:hover {
     font-size: 12px;
   }
 }
-
-@media (min-width: 1200px) {
-  .dashboard,
-  .addActivity,
-  .addGoal,
-  .activities,
-  .goals,
-  .login,
-  .register,
-  .profile-page,
-  .share-page,
-  .notifications-page,
-  .progress-page,
-  .shared-activities-page,
-  .shared-goals-page {
-    max-width: 1000px;
-    padding: 30px;
-  }
-}
