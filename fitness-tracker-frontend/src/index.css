@@ -299,7 +299,7 @@ button.delete-button:hover {
 }
 
 .profile-page input {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
@@ -360,6 +360,7 @@ button.delete-button:hover {
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: zoomIn 0.8s ease;
 }
 
 .progress-page .chart-container {
@@ -381,6 +382,7 @@ button.delete-button:hover {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: zoomIn 0.8s ease;
 }
 
 .share-page h2 {
@@ -407,7 +409,7 @@ button.delete-button:hover {
 }
 
 .form-group input {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
